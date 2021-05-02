@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const menuList = require('./restaurant.json')
+const Menu = require('./models/menu')
 const exphbs = require('express-handlebars')
 
 const bodyParser = require('body-parser')
@@ -32,8 +33,11 @@ app.use(express.static('public'))
 
 //setting routing
 app.get('/', (req, res) => {
-
-  res.render('index', { menuList: menuList.results })
+  Menu.find()
+    .lean()
+    .then(menus => res.render('index', { menus }))
+    .catch(error => console.log(error))
+  // res.render('index', { menuList: menuList.results })
 })
 
 
