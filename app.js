@@ -4,9 +4,11 @@ const port = 3000
 const menuList = require('./restaurant.json')
 const exphbs = require('express-handlebars')
 
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/menuList', { useNewUrlParser: true, useUnifiedTopology: true })
+
+mongoose.connect('mongodb://localhost/Menu_list', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 
 
