@@ -15,7 +15,7 @@
     </div>
   </div>
 </div>
-
+<a class="btn btn-outline-dark btn-lg m-2" href="/new" role="button">Add <i class="fas fa-plus"></i></a>
 <!-- restaurant list -->
 <div class="container mt-5" id="mainId">
   <div class="row">
@@ -32,7 +32,10 @@
               <div class="restaurant-category mb-1">
                 <i class="fas fa-utensils pr-2"></i> {{this.category}}
               </div>
-              <button type="button" class="btn btn-danger btn-sm">{{this.rating}} <i class="fas fa-star"></i></button>
+              <form action="./menu/detail/{{this._id}}" method="POST" style="">
+                <button type="submit" class="btn btn-danger">Detail <i class="fas fa-heart"></i></button>
+
+              </form>
             </div>
           </div>
         </a>
@@ -41,3 +44,4 @@
     {{/each}}
   </div>
 </div>
+<a href="/">back</a>

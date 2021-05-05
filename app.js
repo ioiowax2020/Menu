@@ -23,10 +23,13 @@ db.once('open', () => {
 })
 
 
+//設定模板引擎
+app.engine('hbs', exphbs({ defaultlayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
-//setting engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+//載入接受post 請求的內容 body-parser
+app.use(bodyParser.urlencoded({ extended: true }))
+
 
 //setting static files
 app.use(express.static('public'))
@@ -37,34 +40,50 @@ app.get('/', (req, res) => {
     .lean()
     .then(menus => res.render('index', { menus }))
     .catch(error => console.log(error))
-  // res.render('index', { menuList: menuList.results })
-})
-
-
-app.get('/restaurants/:menu_id', (req, res) => {
-
-  const menuId = req.params.menu_id
-  const menuListS = menuList.results.find(Menu =>
-    Menu.id.toString() === menuId)
-
-  res.render('show', { menuList: menuListS })
 
 })
 
-app.get('/search', (req, res) => {
 
-  const keyword = req.query.keyword
-  const searchMenu = menuList.results.filter(menu => {
-    return menu.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) || menu.category.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
 
-  })
-  res.render('index', { menuList: searchMenu, keyword: keyword })
+
+//瀏覽一筆資料
+app.get('/menu/detail/:id', (req, res) => {
+
+  const id = req.params.id
+
+  return Menu.findById(id)
+    .lean()
+    .then((menu) => res.render('detail', { menu }))
+    .catch(error => console.log(error))
 
 })
+
+
+app.post('/menu/detail/:id', (req, res) => {
+
+  const id = req.params.id
+
+  return Menu.findById(id)
+    .lean()
+    .then((menu) => res.render('detail', { menu }))
+    .catch(error => console.log(error))
+
+})
+
+// app.get('/search', (req, res) => {
+
+//   const keyword = req.query.keyword
+//   const searchMenu = menuList.results.filter(menu => {
+//     return menu.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) || menu.category.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
+
+//   })
+//   res.render('index', { menuList: searchMenu, keyword: keyword })
+
+// })
 
 
 app.listen(port, () => {
 
-  console.log(`Listenling on this local:${port}`)
+  console.log(`Listenling on this local: ${port}`)
 })
 
