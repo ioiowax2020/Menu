@@ -18,7 +18,7 @@
 <span>1.開啟終端機，輸入以下的指令並執行</span>
 
 ```bash
-git clone https://github.com/ioiowax2020/menuList.git
+git clone https://github.com/ioiowax2020/menu-List.git
 ```
 
 <span>2.安裝相關專案工具</span>
