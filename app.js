@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars')
 
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/menuList', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/Menu_list', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 
 
@@ -20,10 +20,9 @@ db.once('open', () => {
 })
 
 
-
 //setting engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 //setting static files
 app.use(express.static('public'))
@@ -39,7 +38,6 @@ app.get('/', (req, res) => {
 })
 
 
-<<<<<<< HEAD
 //新增一筆資料
 
 app.get('/menu/new', (req, res) => {
@@ -72,15 +70,6 @@ app.get('/menu/detail/:id', (req, res) => {
     .lean()
     .then((menu) => res.render('detail', { menu }))
     .catch(error => console.log(error))
-=======
-app.get('/restaurants/:menu_id', (req, res) => {
-
-  const menuId = req.params.menu_id
-  const menuListS = menuList.results.find(Menu =>
-    Menu.id.toString() === menuId)
-
-  res.render('show', { menuList: menuListS })
->>>>>>> parent of c13b745 (feat:fix seed schema,add detail page)
 
 })
 
@@ -95,7 +84,6 @@ app.get('/search', (req, res) => {
 
 })
 
-<<<<<<< HEAD
 //修改一筆特定資料
 app.get('/menu/:id/edit', (req, res) => {
 
@@ -158,9 +146,6 @@ app.get('/search', (req, res) => {
 
 })
 
-
-=======
->>>>>>> parent of c13b745 (feat:fix seed schema,add detail page)
 
 app.listen(port, () => {
 
