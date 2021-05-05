@@ -1,8 +1,12 @@
+<<<<<<< HEAD:views/detail.hbs
 <div class="d-flex justify-content-center align-items-center mt-5">
   <a href="/" class="btn btn-outline-secondary">back</a>
 </div>
 
 <h1 class="mb-1 restaurant-show-title">{{menu.name}}</h1>
+=======
+<h1 class="mb-1 restaurant-show-title">{{menuList.name}}</h1>
+>>>>>>> parent of c13b745 (feat:fix seed schema,add detail page):views/show.handlebars
 <div class="showPic">
   <div class="container" id="showId">
     <div class="row">
@@ -13,7 +17,7 @@
             <i class="fas fa-utensils pr-2"></i>
             類別：
           </span>
-          {{menu.category}}
+          {{menuList.category}}
         </p>
 
         <p class="mb-1">
@@ -21,7 +25,7 @@
             <i class="fas fa-map-marker-alt pr-2"></i>
             地址：
           </span>
-          {{menu.location}}
+          {{menuList.location}}
           <a href="https://goo.gl/maps/V9mKwVJ4s5v" class="text-secondary" target="_blank">
             <i class="fas fa-location-arrow pr-2 fa-xs"></i>
           </a>
@@ -32,15 +36,15 @@
             <i class="fas fa-mobile-alt pr-2"></i>
             電話：
           </span>
-          {{menu.phone}}
+          {{menuList.phone}}
         </p>
 
         <p class="m-5">
-          {{menu.description}}
+          {{menuList.description}}
         </p>
 
 
-        <img class="showPic rounded mx-auto d-block mb-4 w-100" src=" {{menu.image}}" alt=" {{menu.name}}"
+        <img class="showPic rounded mx-auto d-block mb-4 w-100" src=" {{menuList.image}}" alt=" {{menuList.name}}"
           style="max-width: 600px;">
 
       </div>
