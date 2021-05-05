@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Menu = require('../menu')
 
 
-mongoose.connect('mongodb://localhost/Menu_list', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/menuList', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 
 
@@ -13,6 +13,7 @@ db.once('open', () => {
 
   console.log('mongodb connected!')
 
+<<<<<<< HEAD
   Menu.create({
     id: 1,
     name: "Sababa 沙巴巴中東美食",
@@ -110,6 +111,10 @@ db.once('open', () => {
       description: "我們希望帶給您的，不只是啤酒，有美食，還有一份對生活的熱情。 義大利語「Bravo」的原意─「喝采」、「讚揚」， 我想著如果有一個大家都能輕鬆品嚐美酒、享受美食的地方，那就真的是太棒了！ 因為這個念頭，加上一股對比利時啤酒的熱情， 於是「Bravo Beer布娜飛比利時啤酒餐廳」在2006年誕生了..."
     }
   )
+=======
+
+  Menu.create({})
+>>>>>>> parent of 56fffdc (feat: add seeddata)
 
 
   console.log('done!')
