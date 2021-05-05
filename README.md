@@ -4,9 +4,14 @@
 
 <h2>功能列表</h2>
 
+```bash
+有基本的C R U D
+```
 <li>餐廳清單上有基本的資訊</li>
-<li>點擊後，可檢視餐廳資訊</li>
 <li>搜尋可依餐廳名字或是餐廳類別作搜尋</li>
+<li>可增加自己喜歡的餐廳</li>
+<li>清單上增加檢視詳細資訊、編輯、刪除</li>
+<li>增加mongoDB資料庫來儲存使用者資料</li>
 
 
 <h2>安裝</h2>
@@ -18,19 +23,23 @@ git clone https://github.com/ioiowax2020/menuList.git
 
 <span>2.安裝相關專案工具</span>
 ```bash
-cd menuList //切換到專案的資料夾
+cd menu-List //切換到專案的資料夾
 ```
 ```bash
-npm install //安裝相關套件（express,nodemon,exeress-handlebars
+npm install //安裝相關套件（express,nodemon,exeress-handlebars,body-parser,mongoose)
 ```
 
 <span>3.安裝好後，終端機輸入</span>
 ```bash
-nodemon app.js //就可以開啟此專案
+npm run dev //可以開啟此專案
+```
+```bash
+npm run seed //可以載入種子資料
 ```
 
 <h2>環境建置與需求</h2>
 <li>Visual Studio Code 2 -開發環境</li>
 <li>Express ^4.17.1 - 應用程式架構</li>
 <li>Express-handlebars ^5.3.0 - 模板引擎</li>
-<li>Nodemon - 為了每次修改專案可以不用重啟伺服器</li>
+<li>MongoDB </li>
+<li>RoBo 3T 圖形介面 - 查看資料庫內容，</li>
