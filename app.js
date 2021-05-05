@@ -126,6 +126,21 @@ app.post('/menu/:id/edit', (req, res) => {
 
 })
 
+//刪除特定資料
+
+
+app.post('/menu/:id/delete', (req, res) => {
+
+  const id = req.params.id
+
+  return Menu.findById(id)
+    .then(menu => menu.remove())
+    .then(() => res.redirect('/'))
+
+    .catch(error => console.log(error))
+
+})
+
 
 // app.get('/search', (req, res) => {
 
