@@ -95,12 +95,11 @@ max-width: 900px;
 
 @media screen and (max-width: 992px) {
   
-  /* .card img{
+  .card img{
     height: 115px;
-  } */
+  }
   #mainId{
   flex: 30% 0 0;
-
   }
 }
 

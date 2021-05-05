@@ -19,6 +19,12 @@ db.once('open', () => {
 
 })
 
+// 引用 body-parser
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: true }))
+
+
 //setting engine
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
@@ -28,12 +34,13 @@ app.use(express.static('public'))
 
 
 //setting routing
+
 app.get('/', (req, res) => {
   Menu.find()
     .lean()
     .then(menus => res.render('index', { menus }))
     .catch(error => console.log(error))
-  // res.render('index', { menuList: menuList.results })
+
 })
 
 
@@ -60,7 +67,7 @@ app.post('/menu', (req, res) => {
 
 //瀏覽一筆資料
 
-app.get('/menu/detail/:id', (req, res) => {
+app.get('/menu/:id/detail', (req, res) => {
 
   const id = req.params.id
 
@@ -119,6 +126,8 @@ app.post('/menu/:id/delete', (req, res) => {
 
 })
 
+
+//搜尋餐廳
 app.get('/search', (req, res) => {
 
   const keyword = req.query.keyword
@@ -134,17 +143,6 @@ app.get('/search', (req, res) => {
 
 })
 
-
-// app.get('/search', (req, res) => {
-
-//   const keyword = req.query.keyword
-//   const searchMenu = menuList.results.filter(menu => {
-//     return menu.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) || menu.category.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
-
-//   })
-//   res.render('index', { menuList: searchMenu, keyword: keyword })
-
-// })
 
 app.listen(port, () => {
 
