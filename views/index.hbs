@@ -15,15 +15,16 @@
     </div>
   </div>
 </div>
-<a class="btn btn-outline-dark btn-lg m-2" href="./menu/new" role="button">Add <i class="fas fa-plus"></i></a>
+
 <!-- restaurant list -->
 <div class="container mt-5" id="mainId">
+  <a class="btn btn-outline-dark btn-lg m-2" href="./menu/new" role="button">Add <i class="fas fa-plus"></i></a>
   <div class="row">
 
     {{#each menus}}
-    <div class="col-sm-6 col-md-4 col-12 ">
+    <div class="col-sm-6 col-md-4 col-12">
       <div class="card-columns">
-        <a href="/restaurants/{{this.id}}" class="text-secondary" style="text-decoration:none;">
+        <a href="/menu/detail/{{this._id}}" class="text-secondary" style="text-decoration:none;">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
@@ -32,9 +33,9 @@
               <div class="restaurant-category mb-1">
                 <i class="fas fa-utensils pr-2"></i> {{this.category}}
               </div>
-              <form action="./menu/detail/{{this._id}}" method="POST" style="">
-                <button type="submit" class="btn btn-danger">Detail <i class="fas fa-heart"></i></button>
-
+              <form action="./menu/detail/{{this._id}}" method="POST" class="d-flex justify-content-between ">
+                <button type="submit" class="btn btn-danger ">Detail <i class="fas fa-heart"></i></button>
+                <a class="btn btn-primary" href="./menu/{{this._id}}/edit" role="button">Edit</a>
               </form>
             </div>
           </div>

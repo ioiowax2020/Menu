@@ -8,7 +8,10 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
+function checkAlert() {
+  alert('確認了嗎！')
 
+}
 mongoose.connect('mongodb://localhost/Menu_list', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 
@@ -58,15 +61,13 @@ app.get('/menu/new', (req, res) => {
 
 app.post('/menu', (req, res) => {
 
-  const name = req.body.name
+  const { name, category, image } = req.body
   console.log(req.body)
-  return Menu.create({ name })
+  return Menu.create({ name, category, image })
     .then((menu) => res.redirect('/'))
     .catch(error => console.log(error))
 
 })
-
-
 
 //瀏覽一筆資料
 
@@ -93,6 +94,39 @@ app.post('/menu/detail/:id', (req, res) => {
 
 })
 
+//修改一筆特定資料
+app.get('/menu/:id/edit', (req, res) => {
+
+  const id = req.params.id
+  return Menu.findById(id)
+    .lean()
+    .then(menus => res.render('edit', { menus }))
+    .catch(error => console.log(error))
+
+})
+
+
+app.post('/menu/:id/edit', (req, res) => {
+
+  const id = req.params.id
+  console.log(req.body)
+  const { name, category, image } = req.body
+
+
+  return Menu.findById(id)
+    .then(menu => {
+      menu.name = name
+      menu.category = category
+      menu.image = image
+
+      return menu.save()
+    })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+
+})
+
+
 // app.get('/search', (req, res) => {
 
 //   const keyword = req.query.keyword
@@ -103,7 +137,6 @@ app.post('/menu/detail/:id', (req, res) => {
 //   res.render('index', { menuList: searchMenu, keyword: keyword })
 
 // })
-
 
 app.listen(port, () => {
 
