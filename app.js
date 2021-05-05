@@ -141,6 +141,23 @@ app.post('/menu/:id/delete', (req, res) => {
 
 })
 
+app.get('/search', (req, res) => {
+
+  const keyword = req.query.keyword
+
+  return Menu.find()
+    .lean()
+    .then(menus => menus.filter(menu => {
+      return menu.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) || menu.category.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())
+    }))
+
+    .then((menus) => res.render('index', { menus, keyword }))
+    .catch(error => console.log(error))
+
+})
+
+
+
 
 // app.get('/search', (req, res) => {
 
@@ -157,4 +174,3 @@ app.listen(port, () => {
 
   console.log(`Listenling on this local: ${port}`)
 })
-
