@@ -18,7 +18,12 @@
 
 <!-- restaurant list -->
 <div class="container mt-5" id="mainId">
-  <a class="btn btn-outline-dark btn-lg m-2" href="./menu/new" role="button">Add <i class="fas fa-plus"></i></a>
+  <a class="btn btn-outline-dark btn-lg m-2" href="./menu/new" role="button">Add <i class="fas fa-plus"
+      style="float: inline-end;"></i></a>
+
+  <a href="/" class="btn btn-outline-secondary" style="float: right;">HOME</a>
+
+
   <div class="row">
 
     {{#each menus}}
@@ -38,7 +43,8 @@
                 <a class="btn btn-primary ml-2" href="./menu/{{this._id}}/edit" role="button">Edit</a>
 
                 <form action="./menu/{{this._id}}/delete" method="POST" style="display:inline-block">
-                  <button type="submit" class="btn btn-light"><i class="fas fa-trash-alt"></i></button>
+                  <button type="submit" class="btn btn-light"><i class="fas fa-trash-alt"
+                      onclick="window.alert('確認刪除您的名單');"></i></button>
                 </form>
               </div>
             </div>
