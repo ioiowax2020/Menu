@@ -44,9 +44,32 @@ app.get('/', (req, res) => {
 })
 
 
+//新增一筆資料
+
+app.get('/menu/new', (req, res) => {
+
+
+  return Menu.find()
+    .lean()
+    .then((menu) => res.render('new'))
+    .catch(error => console.log(error))
+
+})
+
+app.post('/menu', (req, res) => {
+
+  const name = req.body.name
+  console.log(req.body)
+  return Menu.create({ name })
+    .then((menu) => res.redirect('/'))
+    .catch(error => console.log(error))
+
+})
+
 
 
 //瀏覽一筆資料
+
 app.get('/menu/detail/:id', (req, res) => {
 
   const id = req.params.id
