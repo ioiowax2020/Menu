@@ -5,7 +5,7 @@
 <h2>功能列表</h2>
 
 ```bash
-有基本的C R U D
+有基本的 C R U D
 ```
 <li>餐廳清單上有基本的資訊</li>
 <li>搜尋可依餐廳名字或是餐廳類別作搜尋</li>
@@ -42,4 +42,4 @@ npm run seed //可以載入種子資料
 <li>Express ^4.17.1 - 應用程式架構</li>
 <li>Express-handlebars ^5.3.0 - 模板引擎</li>
 <li>MongoDB </li>
-<li>RoBo 3T 圖形介面 - 查看資料庫內容，</li>
+<li>RoBo 3T 圖形介面 - 查看資料庫內容</li>
