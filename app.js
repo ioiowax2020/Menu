@@ -123,7 +123,7 @@ app.post('/menu/:id/delete', (req, res) => {
     .then(() => res.redirect('/'))
 
     .catch(error => console.log(error))
-s
+  s
 })
 
 
@@ -142,6 +142,25 @@ app.get('/search', (req, res) => {
     .catch(error => console.log(error))
 
 })
+
+
+app.get('/sort', (req, res) => {
+
+  const sorts = req.query.sortList
+  console.log(sorts)
+
+  return Menu.find()
+    .sort({ rating: -1 })
+    .lean()
+    .then((menus) => res.render('index', { menus }))
+    .catch(error => console.log(error))
+
+})
+
+
+
+
+
 
 
 app.listen(port, () => {

@@ -35,6 +35,13 @@ header {
   color: #9b4b4b;
 }
 
+.rating {
+
+  background-color:rgb(255, 251, 1);
+  border-radius: 50% 20% / 10% 40%;
+  color: rgb(5, 5, 5);
+}
+
 .form-control::placeholder {
   color: #aaaaaa;
   font-size: 0.8rem;

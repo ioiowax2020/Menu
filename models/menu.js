@@ -12,7 +12,7 @@ const menuSchema = new Schema({
   location: String,
   phone: String,
   google_map: String,
-  rating: String,
+  rating: Number,
   description: String
 
 })
