@@ -95,20 +95,21 @@ max-width: 900px;
 
 @media screen and (max-width: 992px) {
   
-  .card img{
+  /* .card img{
     height: 115px;
-  }
-  #mainId{
-  flex: 30% 0 0;
-  }
+  } */
+  /* #mainId{
+  flex: 30% 0 1;
+
+  } */
 }
 
 @media screen and (max-width: 768px) {
 
-#mainId{
+/* #mainId{
   flex: 30% 0 1;
 
-  }
+  } */
    .card img{
     height: 30vw;
      width: auto;

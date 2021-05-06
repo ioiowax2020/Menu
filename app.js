@@ -123,7 +123,7 @@ app.post('/menu/:id/delete', (req, res) => {
     .then(() => res.redirect('/'))
 
     .catch(error => console.log(error))
-
+s
 })
 
 
