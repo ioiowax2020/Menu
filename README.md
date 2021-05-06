@@ -4,12 +4,9 @@
 
 <h2>功能列表</h2>
 
-<<<<<<< HEAD
 ```bash
 有基本的 C R U D
 ```
-=======
->>>>>>> parent of f8b2e96 (feat: update README.md)
 <li>餐廳清單上有基本的資訊</li>
 <li>點擊後，可檢視餐廳資訊</li>
 <li>搜尋可依餐廳名字或是餐廳類別作搜尋</li>
@@ -39,9 +36,5 @@ nodemon app.js //就可以開啟此專案
 <li>Visual Studio Code 2 -開發環境</li>
 <li>Express ^4.17.1 - 應用程式架構</li>
 <li>Express-handlebars ^5.3.0 - 模板引擎</li>
-<<<<<<< HEAD
 <li>MongoDB </li>
 <li>RoBo 3T 圖形介面 - 查看資料庫內容</li>
-=======
-<li>Nodemon - 為了每次修改專案可以不用重啟伺服器</li>
->>>>>>> parent of f8b2e96 (feat: update README.md)
