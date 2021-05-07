@@ -13,8 +13,11 @@ const menuSchema = new Schema({
   phone: String,
   google_map: String,
   rating: Number,
-  description: String
-
+  description: String,
+  isDone: {
+    type: Boolean,
+    required: false
+  }
 })
 
 module.exports = mongoose.model('Menu', menuSchema)

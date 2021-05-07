@@ -3,8 +3,10 @@ const app = express()
 const port = 3000
 const Menu = require('./models/menu')
 const exphbs = require('express-handlebars')
-
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
+
 
 mongoose.connect('mongodb://localhost/Menu_list', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
@@ -20,7 +22,6 @@ db.once('open', () => {
 })
 
 // 引用 body-parser
-const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -148,13 +149,22 @@ app.get('/sort', (req, res) => {
 
   const sorts = req.query.sortList
   console.log(sorts)
+  if (sorts === "1") {
+    return Menu.find()
+      .sort({ rating: -1 })
+      .lean()
+      .then((menus) => res.render('index', { menus }))
+      .catch(error => console.log(error))
+  } else if (sorts === "2") {
+    return Menu.find()
+      .sort({ name: 1 })
+      .lean()
+      .then((menus) => res.render('index', { menus }))
+      .catch(error => console.log(error))
 
-  return Menu.find()
-    .sort({ rating: -1 })
-    .lean()
-    .then((menus) => res.render('index', { menus }))
-    .catch(error => console.log(error))
 
+
+  }
 })
 
 
