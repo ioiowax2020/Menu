@@ -32,10 +32,10 @@ app.set('view engine', 'hbs')
 
 //setting static files
 app.use(express.static('public'))
-
+//methodoverrde 設定的app.use 要放在最接近路由的地方
+app.use(methodOverride('_method'))
 
 //setting routing
-
 app.get('/', (req, res) => {
   Menu.find()
     .lean()
@@ -92,7 +92,7 @@ app.get('/menu/:id/edit', (req, res) => {
 })
 
 
-app.post('/menu/:id/edit', (req, res) => {
+app.put('/menu/:id', (req, res) => {
 
   const id = req.params.id
   console.log(req.body)
@@ -115,7 +115,7 @@ app.post('/menu/:id/edit', (req, res) => {
 //刪除特定資料
 
 
-app.post('/menu/:id/delete', (req, res) => {
+app.delete('/menu/:id', (req, res) => {
 
   const id = req.params.id
 
@@ -144,7 +144,7 @@ app.get('/search', (req, res) => {
 
 })
 
-
+//類別排序餐廳
 app.get('/sort', (req, res) => {
 
   const sorts = req.query.sortList
