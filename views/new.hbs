@@ -2,21 +2,48 @@
   <a href="/" class="btn btn-outline-secondary">back</a>
 </div>
 
-<div class="d-flex flex-nowrap justify-content-center align-items-center mt-5">
+<div class="d-flex flex-wrap justify-content-center align-items-center mt-5">
   <form action="/menu" method="POST">
+
     <div class="form-row">
       <div class="form-group col-12">
-        <label for="inputEmail4">餐廳名稱：</label>
-        <input type="text" class="form-control" id="inputEmail4" placeholder="name" name="name" required>
+        <label for="menuname">餐廳名稱：</label>
+        <input type="text" class="form-control" id="menuname" placeholder="name" name="name" required>
       </div>
       <div class="form-group col-12">
-        <label for="inputAddress">餐廳類別：</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="類別" name="category" required>
+        <label for="menucategory">餐廳類別：</label>
+        <input type="text" class="form-control" id="menucategory" placeholder="類別" name="category" required>
       </div>
       <div class="form-group col-12">
-        <label for="inputAddress">圖片：</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="圖片網址" name="image" required>
+        <label for="menuimage">圖片：</label>
+        <input type="text" class="form-control" id="menuimage" placeholder="圖片網址" name="image" required>
       </div>
-      <button type="submit" class="btn btn-primary m-5">Add</button>
+      <div class="form-group col-12">
+        <label for="menurating">評分：</label>
+        <input type="number" min="1.0" max="5" step="0.1" class="form-control" id="menurating" placeholder="評分"
+          name="rating" required>
+      </div>
+      <div class="form-group col-12">
+        <label for="menulocation">地址：</label>
+        <input type="text" class="form-control" id="menulocation" placeholder="地址" name="location" required>
+      </div>
+      <div class="form-group col-12">
+        <label for="menuphone">電話：</label>
+        <input type="text" class="form-control" id="menuphone" placeholder="內容..." name="phone" required>
+      </div>
+      <div class="form-group col-12">
+        <label for="inputAddress">Google：</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="google網址" name="google_map" required>
+      </div>
+      <div class="form-group mt-3 col-12">
+        <label for="description" rows="5" cols="20">餐廳介紹：</label>
+        <textarea id="description" name="description">
+      </textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary m-5">Add</button>
+
+
   </form>
 </div>

@@ -55,24 +55,27 @@ header {
 max-width: 900px;
 }
 
-#showId{
-  max-width: 860px;
-}
 
-.card , .showPic img {
+.card {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
   border-radius: 15px 50px 30px 5px; 
 }
 
-.showPic{
-  background-color:rosybrown;
+.detailPage{
 
+ background-color: rosybrown;
  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
 }
+
 
 .card img{
   height: 180px;
 }
+
+.menuPic img{
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+border-radius: 15px 15px 15px 15px;
+  }
 
 .card-title{
   overflow:hidden;
@@ -96,9 +99,7 @@ max-width: 900px;
 
 @media screen and (max-width: 992px) {
   
-  /* .card img{
-    height: 115px;
-  } */
+
   #mainId{
   flex: 30% 0 1;
 
@@ -122,7 +123,10 @@ max-width: 900px;
 
 @media screen and (max-width: 576px) {
 
+  .menuPic img{
+   min-width: 360px;
 
+  }
   .card img{
     height: auto;
   }

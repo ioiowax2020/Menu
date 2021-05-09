@@ -20,6 +20,32 @@
         <input type="text" class="form-control" id="inputAddress" placeholder="圖片網址" name="image"
           value="{{menus.image}}" required>
       </div>
+
+      <div class="form-group col-12">
+        <label for="menurating">評分：</label>
+        <input type="number" min="1.0" max="5.0" class="form-control" id="menurating" placeholder="評分" name="rating"
+          value="{{menus.rating}}" required>
+      </div>
+      <div class="form-group col-12">
+        <label for="menulocation">地址：</label>
+        <input type="text" class="form-control" id="menulocation" placeholder="地址" name="location"
+          value="{{menus.location}}" required>
+      </div>
+      <div class="form-group col-12">
+        <label for="menuphone">電話：</label>
+        <input type="text" class="form-control" id="menuphone" placeholder="內容..." name="phone" value="{{menus.phone}}"
+          required>
+      </div>
+      <div class="form-group col-12">
+        <label for="inputAddress">Google：</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="google網址" name="google_map"
+          value="{{menus.google_map}}" required>
+      </div>
+      <div class="form-group col-12">
+        <label for="inputAddress">餐廳內容：</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="描述...." name="description"
+          value="{{menus.description}}" required>
+      </div>
       <button type="submit" class="btn btn-primary m-5 justify-content-center align-items-center"
         onclick="window.alert('確認送出修改');">edit</button>
 

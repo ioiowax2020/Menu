@@ -11,12 +11,6 @@ require('./config/mongoose')
 
 const app = express()
 
-
-
-//將request 導入路由器
-
-
-
 //setting engine
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
@@ -28,7 +22,7 @@ app.use(methodOverride('_method'))
 
 
 
-
+//將request 導入路由器
 app.use(routes)
 app.listen(port, () => {
 
