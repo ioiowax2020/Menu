@@ -1,50 +1,11 @@
 const express = require('express')
-const app = express()
-const port = 3000
-const Menu = require('./models/menu')
-const exphbs = require('express-handlebars')
-const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-const methodOverride = require('method-override')
-
-
-const routes = require('./routes')
-
-
-mongoose.connect('mongodb://localhost/Menu_list', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-db.once('open', () => {
-
-  console.log('mongodb connected!')
-
-})
-
-// 引用 body-parser
-
-app.use(bodyParser.urlencoded({ extended: true }))
-//將request 導入路由器
-app.use(routes)
-
-
-//setting engine
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
-app.set('view engine', 'hbs')
-
-//setting static files
-app.use(express.static('public'))
-//methodoverrde 設定的app.use 要放在最接近路由的地方
-app.use(methodOverride('_method'))
-
+const router = express.Router()
+const Menu = require('../../models/menu')
 
 
 //新增一筆資料
 
-app.get('/menu/new', (req, res) => {
+router.get('/new', (req, res) => {
 
   return Menu.find()
     .lean()
@@ -53,7 +14,7 @@ app.get('/menu/new', (req, res) => {
 
 })
 
-app.post('/menu', (req, res) => {
+router.post('/', (req, res) => {
 
   const { name, category, image } = req.body
 
@@ -65,7 +26,7 @@ app.post('/menu', (req, res) => {
 
 //瀏覽一筆資料
 
-app.get('/menu/:id/detail', (req, res) => {
+router.get('/:id/detail', (req, res) => {
 
   const id = req.params.id
 
@@ -78,7 +39,7 @@ app.get('/menu/:id/detail', (req, res) => {
 
 
 //修改一筆特定資料
-app.get('/menu/:id/edit', (req, res) => {
+router.get('/:id/edit', (req, res) => {
 
   const id = req.params.id
   return Menu.findById(id)
@@ -89,7 +50,7 @@ app.get('/menu/:id/edit', (req, res) => {
 })
 
 
-app.put('/menu/:id', (req, res) => {
+router.put('/:id', (req, res) => {
 
   const id = req.params.id
   console.log(req.body)
@@ -111,8 +72,7 @@ app.put('/menu/:id', (req, res) => {
 
 //刪除特定資料
 
-
-app.delete('/menu/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
 
   const id = req.params.id
 
@@ -124,9 +84,8 @@ app.delete('/menu/:id', (req, res) => {
   s
 })
 
-
 //搜尋餐廳
-app.get('/search', (req, res) => {
+router.get('/search', (req, res) => {
 
   const keyword = req.query.keyword
 
@@ -142,7 +101,7 @@ app.get('/search', (req, res) => {
 })
 
 //類別排序餐廳
-app.get('/sort', (req, res) => {
+router.get('/sort', (req, res) => {
 
   const sorts = req.query.sortList
   console.log(sorts)
@@ -166,11 +125,4 @@ app.get('/sort', (req, res) => {
 
 
 
-
-
-
-
-app.listen(port, () => {
-
-  console.log(`Listenling on this local:${port}`)
-})
+module.exports = router
