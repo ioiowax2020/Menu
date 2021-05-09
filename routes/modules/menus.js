@@ -7,10 +7,7 @@ const Menu = require('../../models/menu')
 
 router.get('/new', (req, res) => {
 
-  return Menu.find()
-    .lean()
-    .then((menu) => res.render('new'))
-    .catch(error => console.log(error))
+  return res.render('new')
 
 })
 
@@ -53,10 +50,7 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
 
   const id = req.params.id
-  console.log(req.body)
   const { name, category, image } = req.body
-
-
   return Menu.findById(id)
     .then(menu => {
       menu.name = name

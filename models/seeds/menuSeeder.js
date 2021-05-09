@@ -1,14 +1,7 @@
-const mongoose = require('mongoose')
 const Menu = require('../menu')
+const db = require('../../config/mongoose')
 
 
-mongoose.connect('mongodb://localhost/Menu_list', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
 db.once('open', () => {
 
   console.log('mongodb connected!')
