@@ -5,8 +5,8 @@ const router = express.Router()
 const Menu = require('../../models/menu')
 
 router.get('/', (req, res) => {
-
-  Menu.find()
+  const userId = req.user._id
+  Menu.find({ userId })
     .lean()
     .sort({ _id: 'asc' })
     .then(menus => res.render('index', { menus }))

@@ -8,8 +8,8 @@ const menus = require('./modules/menus')
 const users = require('./modules/users')
 const { authenticator } = require('../middleware/auth')
 
-router.use('/users', users)
 router.use('/menu', authenticator, menus)
+router.use('/users', users)
 router.use('/', authenticator, home)
 
 

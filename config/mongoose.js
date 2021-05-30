@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const MONGODB_URI = 'mongodb://localhost/Menu_list'
 
-mongoose.connect('mongodb://localhost/Menu_list', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 const db = mongoose.connection
 
