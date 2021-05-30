@@ -99,11 +99,6 @@ border-radius: 15px 15px 15px 15px;
 
 @media screen and (max-width: 992px) {
   
-
-  #mainId{
-  flex: 30% 0 1;
-
-  }
 }
 
 @media screen and (max-width: 768px) {
