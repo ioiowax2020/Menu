@@ -8,7 +8,6 @@ const menuSchema = new Schema({
   },
   name_en: {
     type: String,
-    required: true
   },
   category: {
     type: String,
@@ -36,7 +35,6 @@ const menuSchema = new Schema({
   },
   description: {
     type: String,
-    required: true
   },
   userId: {
     type: Schema.Types.ObjectId,
