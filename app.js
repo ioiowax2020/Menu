@@ -4,19 +4,22 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
 
-const port = 3000
-
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+const port = process.env.PORT
 const usePassport = require('./config/passport')
-
 const routes = require('./routes')
+
 require('./config/mongoose')
+
 
 const app = express()
 
 
 
 app.use(session({
-  secret: 'ThisIsMymenuList',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
