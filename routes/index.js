@@ -6,11 +6,12 @@ const router = express.Router()
 const home = require('./modules/home')
 const menus = require('./modules/menus')
 const users = require('./modules/users')
+const { authenticator } = require('../middleware/auth')
 
-router.use('/', home)
-router.use('/menu', menus)
 router.use('/users', users)
+router.use('/menu', authenticator, menus)
+router.use('/', authenticator, home)
+
 
 // 匯出路由器
-
 module.exports = router
