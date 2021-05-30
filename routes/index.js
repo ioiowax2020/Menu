@@ -2,15 +2,14 @@
 const express = require('express')
 const router = express.Router()
 
-
-// 準備引入路由模組
+// 路由模組
 const home = require('./modules/home')
-router.use('/', home)
-
 const menus = require('./modules/menus')
+const users = require('./modules/users')
 
+router.use('/', home)
 router.use('/menu', menus)
-
+router.use('/users', users)
 
 // 匯出路由器
 

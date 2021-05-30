@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
 
 //瀏覽一筆資料
 
-router.get('/:id/detail', (req, res) => {
+router.get('/:id', (req, res) => {
 
   const id = req.params.id
 
@@ -82,6 +82,5 @@ router.delete('/:id', (req, res) => {
     .catch(error => console.log(error))
   s
 })
-
 
 module.exports = router

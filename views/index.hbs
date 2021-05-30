@@ -2,7 +2,7 @@
 <div class="container search-bar">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
-      <form action="/search">
+      <form action="/search" method="GET">
         <h4 class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
@@ -56,7 +56,7 @@
               </div>
 
               <div class="d-flex justify-content-between mt-4">
-                <a class="btn btn-outline-info" href="./menu/{{this._id}}/detail" role="button">Detail</a>
+                <a class="btn btn-outline-info" href="./menu/{{this._id}}" role="button">Detail</a>
 
                 <a class="btn btn-outline-warning" href="./menu/{{this._id}}/edit" role="button">Edit</a>
 
